@@ -1,7 +1,8 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: '/src/js/index.js',
     mode: 'development',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -19,11 +20,7 @@ module.exports = {
             },
             {
                 test: /\.sass$/,
-                use: [
-                    'style-loader',
-                    'css-loader', 
-                    'sass-loader',
-                ],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
     },
@@ -32,4 +29,9 @@ module.exports = {
         port: 8080,
         open: true,
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/html/index.html',
+        }),
+    ],
 };
