@@ -1,19 +1,28 @@
-
 export function updateLabels(errors) {
+    const requestMessage = document.getElementById('responseMessage');
+
     const labels = {
-        name: document.getElementById('nameLabel'),
-        email: document.getElementById('emailLabel'),
-        phone: document.getElementById('phoneLabel'),
-        message: document.getElementById('messageLabel'),
+        inputName: document.getElementById('nameLabel'),
+        inputEmail: document.getElementById('emailLabel'),
+        inputPhone: document.getElementById('phoneLabel'),
+        inputMessage: document.getElementById('messageLabel'),
     };
 
-    for (const [key, label] of Object.entries(labels)) {
-        if (errors[key]) {
-            label.textContent = '* ' + errors[key];
-            label.style.color = 'red';
-        } else {
-            label.textContent = `input ${key}`;
-            label.style.color = 'black';
+    if (errors.fields) {
+        for (const [key, label] of Object.entries(labels)) {
+            if (errors.fields[key]) {
+                label.textContent = '* ' + errors.fields[key];
+                label.style.color = 'red';
+            } else {
+                label.textContent = `input ${key.slice(5)}`;
+                label.style.color = 'black';
+            }
         }
+    }
+
+    if (errors.message) {
+        requestMessage.textContent = errors.message;
+    } else {
+        requestMessage.textContent = '';
     }
 }

@@ -3,6 +3,7 @@ import { validateForm } from './validationForm';
 import '../sass/style.sass';
 import { submitForm } from './submitForm';
 import { getFormData } from './getFormData';
+import { updateLabels } from './updateLabels';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('feedbackForm');
@@ -49,6 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = getFormData(form);
         const response = await submitForm(formData);
-        console.log(response);
+        updateLabels(response);
     });
 });

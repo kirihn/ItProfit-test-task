@@ -8,7 +8,7 @@ app.use(cors());
 
 app.post('/api/registration', (req, res) => {
     if (Math.random() > 0.5) {
-        res.statusCode = 402;
+        res.statusCode = 400;
 
         setTimeout(() => {
             res.send({

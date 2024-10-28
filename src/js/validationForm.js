@@ -20,25 +20,25 @@ export function validateForm(form) {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!name) {
-        errors.fields.name = 'Name is required';
+        errors.fields.inputName = 'Name is required';
         errors.status = 'error';
     }
 
     if (!email || !emailPattern.test(email)) {
-        errors.fields.email = 'Incorrect email';
+        errors.fields.inputEmail = 'Incorrect email';
         errors.status = 'error';
     }
 
     if (!phone || !phonePattern.test(phone)) {
-        errors.fields.phone = 'Incorrect phone format.';
+        errors.fields.inputPhone = 'Incorrect phone format.';
         errors.status = 'error';
     }
 
     if (!message) {
-        errors.fields.message = 'Message is required';
+        errors.fields.inputMessage = 'Message is required';
         errors.status = 'error';
     }
 
-    updateLabels(errors.fields);
+    updateLabels(errors);
     return errors;
 }
