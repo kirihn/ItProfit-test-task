@@ -1,6 +1,8 @@
 import IMask from 'imask';
-import { ValidateForm } from './validationForm';
+import { validateForm } from './validationForm';
 import '../sass/style.sass';
+import { submitForm } from './submitForm';
+import { getFormData } from './getFormData';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('feedbackForm');
@@ -39,10 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     IMask(phone, maskOptions);
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        let errors = ValidateForm(form);
+        let errors = validateForm(form);
 
         if (errors.status === 'error') return;
+
+        const formData = getFormData(form);
+        const response = await submitForm(formData);
+        console.log(response);
     });
 });

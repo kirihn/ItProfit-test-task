@@ -1,6 +1,6 @@
-import { updateLabels } from "./updateLabels";
+import { updateLabels } from './updateLabels';
 
-export function ValidateForm(form) {
+export function validateForm(form) {
     let errors = {
         status: 'success',
         fields: {
@@ -33,9 +33,6 @@ export function ValidateForm(form) {
         errors.fields.phone = 'Incorrect phone format.';
         errors.status = 'error';
     }
-
-    console.log(message);
-    console.log(!message);
 
     if (!message) {
         errors.fields.message = 'Message is required';
