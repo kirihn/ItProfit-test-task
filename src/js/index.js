@@ -1,10 +1,10 @@
 import IMask from 'imask';
 import { validateForm } from './validationForm';
-import '../sass/style.sass';
 import { submitForm } from './submitForm';
 import { getFormData } from './getFormData';
 import { updateLabels } from './updateLabels';
 import { cleanInputs } from './cleanInputs';
+import '../scss/style.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('feedbackForm');
@@ -50,6 +50,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.status === 'success') cleanInputs(form);
         IMask(phone, maskOptions);
-
     });
 });

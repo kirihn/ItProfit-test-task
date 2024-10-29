@@ -16,7 +16,8 @@ export function validateForm(form) {
     const phone = form.phone.value.trim();
     const message = form.message.value.trim();
 
-    const phonePattern = /^\+375\(25|29|33|44\)\d{3}-\d{2}-\d{2}$/;
+    const phonePattern = /^\+375\((25|29|33|44)\)\d{3}-\d{2}-\d{2}$/;
+
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!name) {
