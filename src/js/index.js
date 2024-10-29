@@ -63,11 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     openModalBtn.addEventListener('click', () => {
         modal.classList.add('visible');
+        modal.classList.add('display');
     });
 
-    closeModalBtn.addEventListener('click', () => {
+    closeModalBth.addEventListener('click', () => {
         modal.classList.remove('visible');
     });
+
     window.onclick = (event) => {
         if (event.target == modal) {
             modal.classList.remove('visible');

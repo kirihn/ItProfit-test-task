@@ -151,7 +151,7 @@ body{
         width: 100%;
         height: 100%;
         background: #0000003f;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         opacity: 0; 
@@ -162,6 +162,9 @@ body{
             opacity: 1;
             visibility: visible;
             animation: bgAnimate 0.8s; 
+        }
+        &.display{
+            display: flex;
         }
     
         .modalContainer{
