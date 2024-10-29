@@ -1,11 +1,15 @@
 export async function submitForm(formData) {
-    const response = await fetch('http://localhost:9090/api/registration', {
-        method: "POST",
+    return fetch('http://localhost:9090/api/registration', {
+        method: 'POST',
         headers: {
-            'Content-type':'application/json',
+            'Content-type': 'application/json',
         },
-        body: formData,
+        body: JSON.stringify(formData), // Сериализация данных в строку JSON
     })
-
-    return response.json();
+    .then((response) => {
+        return response.json(); // Возвращаем JSON-данные
+    })
+    .catch(() => {
+        return {serverError: true};
+    });
 }

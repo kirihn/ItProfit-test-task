@@ -2,6 +2,7 @@ $textColor: #ebeedc;
 * {
     margin: 0;
     padding: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 @keyframes gradientAnimation{
@@ -21,7 +22,6 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-
     background: linear-gradient(180deg, #414141, #414141, #82508c, #414141);
     animation: gradientAnimation 10s ease infinite;
     background-size: 300% 300% ;
@@ -35,13 +35,16 @@ body{
         border: 3px solid rgba(120, 120, 120, 0.5);
         background: #202020;
         border-radius: 15px;
+
         h2{
             text-align: center;
             color: $textColor;
         }
+
         p{
             text-align: center;
         }
+
         .feedbackForm{
             display: flex;
             flex-direction: column;
@@ -50,6 +53,7 @@ body{
                 margin: 8px 0 3px 0;
                 color: $textColor;
             }
+
             input, textarea{
                 padding: 8px 5px;
                 border-radius: 5px;
@@ -59,11 +63,13 @@ body{
                 width: 100% ;
                 box-sizing: border-box;
             }
+
             .textarea{
                 min-height: 50px;
                 max-height: 150px;
                 resize: vertical;
             }
+
             button{
                 background: #145bb2;
                 color: $textColor;
@@ -76,10 +82,12 @@ body{
                 box-shadow: 0px 0px 20px #124d96;
                 
             }
+
             button:hover{
                 background: #13519d;
                 scale: 1.02;
             }
+
             button:active{
                 background: #0f3f7b;
                 scale: 1.01;
@@ -93,8 +101,6 @@ body{
         position: fixed;
         top: 20px;
         right: 20px;
-        
-        
         background: #145bb2;
         color: $textColor;
         font-size: 12px;
@@ -114,8 +120,30 @@ body{
 
     }
 
-    .modal{
-        display: none;
+    @keyframes modalAnimate{
+        from {
+            opacity: 0;
+
+        }
+        to {
+            opacity: 1;
+
+        }
+    }
+
+    @keyframes bgAnimate {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    
+    .modal {
         position: fixed;
         z-index: 9999;
         top: 0;
@@ -123,19 +151,28 @@ body{
         width: 100%;
         height: 100%;
         background: #0000003f;
-
+        display: flex;
         justify-content: center;
-        align-items: center;        
+        align-items: center;
+        opacity: 0; 
+        visibility: hidden;
+        transition: opacity 0.8s ease, visibility 0.8s ease; 
+    
+        &.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: bgAnimate 0.8s; 
+        }
+    
         .modalContainer{
             width: 250px;
-
-            
             padding: 15px;
             color: $textColor;
             box-sizing: border-box;
             border: 3px solid rgba(120, 120, 120, 0.5);
             background: #202020;
             border-radius: 15px;
+
             span{
                 float: right;
                 font-size: 25px;
@@ -146,6 +183,7 @@ body{
             h3{
                 margin-top: 15;
             }
+            animation: modalAnimate 0.3s;
         }
     }
 }

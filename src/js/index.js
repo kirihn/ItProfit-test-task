@@ -49,19 +49,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = getFormData(form);
         const response = await submitForm(formData);
+
+        if (response.serverError) {
+            alert('server error');
+            return;
+        }
+
         updateLabels(response);
 
         if (response.status === 'success') cleanInputs(form);
         IMask(phone, maskOptions);
     });
 
-    openModalBtn.onclick = () => {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    };
+    openModalBtn.addEventListener('click', () => {
+        modal.classList.add('visible');
+    });
 
-    closeModalBth.onclick = () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+    closeModalBtn.addEventListener('click', () => {
+        modal.classList.remove('visible');
+    });
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.classList.remove('visible');
+        }
     };
 });

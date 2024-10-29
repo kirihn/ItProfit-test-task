@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 @keyframes gradientAnimation {
@@ -101,8 +102,25 @@ body .openModalBtn:active {
   background: #0f3f7b;
   scale: 1.01;
 }
+@keyframes modalAnimate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bgAnimate {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 body .modal {
-  display: none;
   position: fixed;
   z-index: 9999;
   top: 0;
@@ -110,8 +128,17 @@ body .modal {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2470588235);
+  display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+body .modal.visible {
+  opacity: 1;
+  visibility: visible;
+  animation: bgAnimate 0.8s;
 }
 body .modal .modalContainer {
   width: 250px;
@@ -121,6 +148,7 @@ body .modal .modalContainer {
   border: 3px solid rgba(120, 120, 120, 0.5);
   background: #202020;
   border-radius: 15px;
+  animation: modalAnimate 0.3s;
 }
 body .modal .modalContainer span {
   float: right;
