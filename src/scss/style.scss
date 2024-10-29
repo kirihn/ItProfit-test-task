@@ -1,10 +1,151 @@
+$textColor: #ebeedc;
 * {
     margin: 0;
     padding: 0;
 }
 
+@keyframes gradientAnimation{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 50% 100%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
 body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background: linear-gradient(180deg, #414141, #414141, #82508c, #414141);
+    animation: gradientAnimation 10s ease infinite;
+    background-size: 300% 300% ;
+
     .formContainer{
+        margin: 5px;
+        color: $textColor;
+        width: 350px;
+        padding: 25px;
+        box-sizing: border-box;
+        border: 3px solid rgba(120, 120, 120, 0.5);
+        background: #202020;
+        border-radius: 15px;
+        h2{
+            text-align: center;
+            color: $textColor;
+        }
+        p{
+            text-align: center;
+        }
+        .feedbackForm{
+            display: flex;
+            flex-direction: column;
+
+            label{
+                margin: 8px 0 3px 0;
+                color: $textColor;
+            }
+            input, textarea{
+                padding: 8px 5px;
+                border-radius: 5px;
+                border: 0.1px solid black;
+                background: #151515;
+                color: $textColor;
+                width: 100% ;
+                box-sizing: border-box;
+            }
+            .textarea{
+                min-height: 50px;
+                max-height: 150px;
+                resize: vertical;
+            }
+            button{
+                background: #145bb2;
+                color: $textColor;
+                width: 200px;
+                font-size: 15px;
+                padding: 10px;
+                margin: 15px auto 15px auto;
+                border-radius: 5px;
+                border: 1.5px solid rgb(154, 182, 247);
+                box-shadow: 0px 0px 20px #124d96;
+                
+            }
+            button:hover{
+                background: #13519d;
+                scale: 1.02;
+            }
+            button:active{
+                background: #0f3f7b;
+                scale: 1.01;
+
+            }
+        }
         
+    }
+
+    .openModalBtn{
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        
+        
+        background: #145bb2;
+        color: $textColor;
+        font-size: 12px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1.5px solid rgb(154, 182, 247);
+        box-shadow: 0px 0px 20px #124d96;
+
+    }
+    .openModalBtn:hover{
+        background: #13519d;
+        scale: 1.02;
+    }
+    .openModalBtn:active{
+        background: #0f3f7b;
+        scale: 1.01;
+
+    }
+
+    .modal{
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0000003f;
+
+        justify-content: center;
+        align-items: center;        
+        .modalContainer{
+            width: 250px;
+
+            
+            padding: 15px;
+            color: $textColor;
+            box-sizing: border-box;
+            border: 3px solid rgba(120, 120, 120, 0.5);
+            background: #202020;
+            border-radius: 15px;
+            span{
+                float: right;
+                font-size: 25px;
+                margin-top: -10px;
+                cursor: pointer;
+            }
+            
+            h3{
+                margin-top: 15;
+            }
+        }
     }
 }

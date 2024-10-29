@@ -6,24 +6,35 @@
     <title>itprofit</title>
 </head>
 <body>
+
+    <button id="openModalBtn" class="openModalBtn">Click me!</button>
     <div class="formContainer">
         <h2>Feedback Form</h2>
-        <form id="feedbackForm">
-            <label for="name" id="nameLabel">input name</label>
+        <form id="feedbackForm" class="feedbackForm">
+            <label for="name" id="nameLabel">input Name</label>
             <input type="text" id="name" name="name">
 
-            <label for="email" id="emailLabel">input email</label>
+            <label for="email" id="emailLabel">input Email</label>
             <input type="text" id="email" name="email" >
             
-            <label for="phone" id="phoneLabel">input phone</label>
+            <label for="phone" id="phoneLabel">input Phone</label>
             <input type="text" id="phone" name="phone" required>
             
-            <label for="message" id="messageLabel">input message</label>
-            <textarea id="message" name="message" ></textarea>
+            <label for="message" id="messageLabel">input Message</label>
+            <textarea class="textarea" id="message" name="message" ></textarea>
 
-            <button type="submit">send</button>
+            <button type="submit">Send</button>
         </form>
         <p id="responseMessage"></p>
+    </div>
+    
+
+    <div id="modal" class="modal">
+        <div class="modalContainer">
+        <span class="close" id="closeModalBtn">&times;</span>
+        <h3>Modal window</h3>
+            <p>This is a simple modal!</p>
+        </div>
     </div>
 </body>
 </html>

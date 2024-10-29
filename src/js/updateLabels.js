@@ -12,10 +12,10 @@ export function updateLabels(errors) {
         for (const [key, label] of Object.entries(labels)) {
             if (errors.fields[key]) {
                 label.textContent = '* ' + errors.fields[key];
-                label.style.color = 'red';
+                label.style.color = '#d63636';
             } else {
                 label.textContent = `input ${key.slice(5)}`;
-                label.style.color = 'black';
+                label.style.color = '#ebeedc';
             }
         }
     }

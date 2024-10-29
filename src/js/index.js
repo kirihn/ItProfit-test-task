@@ -1,14 +1,17 @@
+import '../scss/style.scss';
 import IMask from 'imask';
 import { validateForm } from './validationForm';
 import { submitForm } from './submitForm';
 import { getFormData } from './getFormData';
 import { updateLabels } from './updateLabels';
 import { cleanInputs } from './cleanInputs';
-import '../scss/style.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('feedbackForm');
     const phone = document.getElementById('phone');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBth = document.getElementById('closeModalBtn');
+    const modal = document.getElementById('modal');
 
     const maskOptions = {
         mask: '+375(99)000-00-00',
@@ -51,4 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.status === 'success') cleanInputs(form);
         IMask(phone, maskOptions);
     });
+
+    openModalBtn.onclick = () => {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    };
+
+    closeModalBth.onclick = () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    };
 });
