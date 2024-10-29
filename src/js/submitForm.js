@@ -1,5 +1,5 @@
 export async function submitForm(formData) {
-    return fetch('http://localhost:9090/api/registration', {
+    return fetch('/api/registration', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
